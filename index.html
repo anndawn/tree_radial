@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="./inspector.css">
 <style>
 .big_container {
-  grid-template-columns: 200px 30px auto;
+  grid-template-columns: 200px 30px auto 300px 10px;
   display: grid;
   height:100%
 }
@@ -41,46 +41,67 @@
   grid-column-start: 3;
   grid-column-end: 4;
   text-align: center;
-  display: grid;
-  grid-template-rows: 15px 30px  auto;
-  height :150vh;
+  height: 100vh
+  /* height :150vh; */
 }
-#right .observablehq-zoom_button{
-  grid-row-start:2;
-  grid-row-end:3;
+#zoom_font_wrapper{
+  grid-column-start: 4;
+  grid-column-end: 5;
+  width :100%;
+  margin-top: 15px;
 }
+
+#zoom_font_wrapper .observablehq-viewof-fontsize_i{
+  box-sizing: border-box;
+  margin: 0em;
+  font: 400 13.3333px Arial;
+  margin-top: 10px;
+}
+
 #right .observablehq-graph{
-  grid-row-start:3;
-  grid-row-end:4;
+  max-width :calc(100vh - 20px);
+  height :calc(100vh - 20px);
+  border-width: 3px;
+  border-color: #000;
+  border-style: solid;
+  margin-left: auto;
+  margin-right: auto;
+
 }
-#right form button {
-  margin-left: 20px;
+
+
+form.oi-f4a1c1 label{
+  margin-right: 0 !important;
+  width: 70px !important
 }
-/* .observablehq-graph {width: } */
 </style>
-<div id="observablehq-aec8652e" class='big_container'>
+<div id="observablehq-fa86b2f8" class="big_container">
   <div id="left">
-    <div class="observablehq-viewof-f"></div>
-    <div class="observablehq-viewof-chartName"></div>
-    <div class="observablehq-download_png"></div>
-    <div class="observablehq-download_svg"></div>
-    <div class="observablehq-data_download"></div>
-  </div>
-  <div id="right">
-    <div class="observablehq-zoom_button"></div>
-    <div class="observablehq-graph"></div>
-  </div>
+  <div class="observablehq-viewof-f"></div>
+  <div class="observablehq-viewof-chartName"></div>
+  <div class="observablehq-download_png"></div>
+  <div class="observablehq-download_svg"></div>
+  <div class="observablehq-data_download"></div>
+</div>
+<div id="right">
+  <div class="observablehq-graph"></div>
+</div>
+<div id="zoom_font_wrapper">
+  <div class="observablehq-zoom_button"></div>
+  <div class="observablehq-viewof-fontsize_i"></div>
+</div>
 </div>
 <script type="module">
   import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
   import define from "https://api.observablehq.com/@anndawn/test.js?v=3";
   (new Runtime).module(define, name => {
-    if (name === "viewof f") return Inspector.into("#observablehq-aec8652e .observablehq-viewof-f")();
-    if (name === "viewof chartName") return Inspector.into("#observablehq-aec8652e .observablehq-viewof-chartName")();
-    if (name === "zoom_button") return Inspector.into("#observablehq-aec8652e .observablehq-zoom_button")();
-    if (name === "graph") return Inspector.into("#observablehq-aec8652e .observablehq-graph")();
-    if (name === "download_png") return Inspector.into("#observablehq-aec8652e .observablehq-download_png")();
-    if (name === "download_svg") return Inspector.into("#observablehq-aec8652e .observablehq-download_svg")();
-    if (name === "data_download") return Inspector.into("#observablehq-aec8652e .observablehq-data_download")();
+    if (name === "viewof f") return Inspector.into("#observablehq-fa86b2f8 .observablehq-viewof-f")();
+    if (name === "viewof chartName") return Inspector.into("#observablehq-fa86b2f8 .observablehq-viewof-chartName")();
+    if (name === "zoom_button") return Inspector.into("#observablehq-fa86b2f8 .observablehq-zoom_button")();
+    if (name === "graph") return Inspector.into("#observablehq-fa86b2f8 .observablehq-graph")();
+    if (name === "download_png") return Inspector.into("#observablehq-fa86b2f8 .observablehq-download_png")();
+    if (name === "download_svg") return Inspector.into("#observablehq-fa86b2f8 .observablehq-download_svg")();
+    if (name === "data_download") return Inspector.into("#observablehq-fa86b2f8 .observablehq-data_download")();
+    if (name === "viewof fontsize_i") return Inspector.into("#observablehq-fa86b2f8 .observablehq-viewof-fontsize_i")();
   });
 </script>
