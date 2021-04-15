@@ -3,6 +3,7 @@
 <title>D3 Collapsible</title>
 <link rel="stylesheet" type="text/css" href="./inspector.css">
 <style>
+  /* css grid for the layout */
 .big_container {
   grid-template-columns: 200px 30px auto 300px 10px;
   display: grid;
@@ -16,7 +17,7 @@
   height:100vh
 }
 
-#left .observablehq-viewof-f{
+#left .observablehq-viewof-file_upload{
   grid-row-start: 2;
   grid-row-end: 3;
 }
@@ -37,7 +38,7 @@
   grid-row-start:8;
   grid-row-end:9;
 }
-#right {
+#middle {
   grid-column-start: 3;
   grid-column-end: 4;
   text-align: center;
@@ -51,14 +52,15 @@
   margin-top: 15px;
 }
 
-#zoom_font_wrapper .observablehq-viewof-fontsize_i{
+#zoom_font_wrapper .observablehq-viewof-font_size{
   box-sizing: border-box;
   margin: 0em;
   font: 400 13.3333px Arial;
   margin-top: 10px;
 }
 
-#right .observablehq-graph{
+#middle .observablehq-graph{
+  /* set viewport height as height for the graph*/
   max-width :calc(100vh - 20px);
   height :calc(100vh - 20px);
   border-width: 3px;
@@ -69,39 +71,48 @@
 
 }
 
-
-form.oi-f4a1c1 label{
+form.oi-727f79 label{
   margin-right: 0 !important;
   width: 70px !important
 }
+
 </style>
-<div id="observablehq-fa86b2f8" class="big_container">
+<div id="observablehq-f7ed2084" class="big_container">
+  <!-- column on the left -->
   <div id="left">
-  <div class="observablehq-viewof-f"></div>
-  <div class="observablehq-viewof-chartName"></div>
-  <div class="observablehq-download_png"></div>
-  <div class="observablehq-download_svg"></div>
-  <div class="observablehq-data_download"></div>
-</div>
-<div id="right">
-  <div class="observablehq-graph"></div>
-</div>
-<div id="zoom_font_wrapper">
-  <div class="observablehq-zoom_button"></div>
-  <div class="observablehq-viewof-fontsize_i"></div>
-</div>
+    <!-- file upload icon and button -->
+    <div class="observablehq-viewof-file_upload"></div>
+    <!-- chart drop down selection -->
+    <div class="observablehq-viewof-chartName"></div>
+    <!-- download buttons -->
+    <div class="observablehq-download_png"></div>
+    <div class="observablehq-download_svg"></div>
+    <div class="observablehq-data_download"></div>
+  </div>
+  <!-- graph in the middle -->
+  <div id="middle">
+    <div class="observablehq-graph"></div>
+  </div>
+  <div id="zoom_font_wrapper">
+    <!-- zoom buttons -->
+    <div class="observablehq-zoom_button"></div>
+    <!-- font size changer -->
+    <div class="observablehq-viewof-font_size"></div>
+  </div>
 </div>
 <script type="module">
-  import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+  // use observable embed to embed cells into divs above
+  // published notebook is here https://observablehq.com/@anndawn/test
+ import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
   import define from "https://api.observablehq.com/@anndawn/test.js?v=3";
   (new Runtime).module(define, name => {
-    if (name === "viewof f") return Inspector.into("#observablehq-fa86b2f8 .observablehq-viewof-f")();
-    if (name === "viewof chartName") return Inspector.into("#observablehq-fa86b2f8 .observablehq-viewof-chartName")();
-    if (name === "zoom_button") return Inspector.into("#observablehq-fa86b2f8 .observablehq-zoom_button")();
-    if (name === "graph") return Inspector.into("#observablehq-fa86b2f8 .observablehq-graph")();
-    if (name === "download_png") return Inspector.into("#observablehq-fa86b2f8 .observablehq-download_png")();
-    if (name === "download_svg") return Inspector.into("#observablehq-fa86b2f8 .observablehq-download_svg")();
-    if (name === "data_download") return Inspector.into("#observablehq-fa86b2f8 .observablehq-data_download")();
-    if (name === "viewof fontsize_i") return Inspector.into("#observablehq-fa86b2f8 .observablehq-viewof-fontsize_i")();
+    if (name === "viewof file_upload") return Inspector.into("#observablehq-f7ed2084 .observablehq-viewof-file_upload")();
+    if (name === "viewof chartName") return Inspector.into("#observablehq-f7ed2084 .observablehq-viewof-chartName")();
+    if (name === "zoom_button") return Inspector.into("#observablehq-f7ed2084 .observablehq-zoom_button")();
+    if (name === "graph") return Inspector.into("#observablehq-f7ed2084 .observablehq-graph")();
+    if (name === "download_png") return Inspector.into("#observablehq-f7ed2084 .observablehq-download_png")();
+    if (name === "download_svg") return Inspector.into("#observablehq-f7ed2084 .observablehq-download_svg")();
+    if (name === "data_download") return Inspector.into("#observablehq-f7ed2084 .observablehq-data_download")();
+    if (name === "viewof font_size") return Inspector.into("#observablehq-f7ed2084 .observablehq-viewof-font_size")();
   });
 </script>
